@@ -124,30 +124,41 @@ transition: 0.5s ease-in-out;
   }
 
   .secHand{
-      position: absolute;
-      top: 57px;
-      width: 3px;
-      height: 120px;
-      background-color: aqua;
-      z-index: 2;
-      transform-origin: 100%;
-      transform: rotate(60deg);
+    width: 37%;
+    height: 4px;
+    background: blue;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    z-index: 1;
+    left: 13%;
   }
   .minHand{
+    width: 32%;
+    height: 5px;
+    background: yellow;
     position: absolute;
-    top: 75px;
-    width: 4px;
-    height: 100px;
-    background-color: black;
-    z-index: 2;
+    top: 50%;
     transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    z-index: 1;
+    left: 18%;
 }
 .hrHand{
+    width: 26%;
+    height: 6px;
+    background: red;
     position: absolute;
-    top: 95px;
-    width: 5px;
-    height: 80px;
-    background-color: red;
-    z-index: 2;
+    top: 50%;
     transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    z-index: 1;
+    left: 24%;
 }

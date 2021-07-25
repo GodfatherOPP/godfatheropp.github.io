@@ -36,21 +36,22 @@
     </div>
  <script>
  
-//  const secHand = document.querySelector(".secHand");
-//     const minHand = document.querySelector(".minHand");
-//     const hourHand = document.querySelector(".hrHand");
+ const secHand = document.querySelector(".secHand");
+    const minHand = document.querySelector(".minHand");
+    const hourHand = document.querySelector(".hrHand");
     
-//     setInterval(()=>{
-//     let time = new Date();
+    setInterval(()=>{
+    let time = new Date();
 
-//    var second = time.getSeconds() *6;
-//    var minutes = time.getMinutes() *6;
-//    var hours = time.getHours() *30;
+   var second = time.getSeconds() ;
+   var minutes = time.getMinutes() ;
+   var hours = time.getHours() ;
+  minHand.style.transform =`rotateZ(${(minutes*6)+90}deg)`;
+  secHand.style.transform = `rotateZ(${(second*6)+90}deg)`;
+  hourHand.style.transform = `rotateZ(${(hours*30)+90}deg)`;
+    },1000);
 
-//   minHand.style.transform =`rotateZ(${minutes}deg)`;
-//   secHand.style.transform = `rotateZ(${second}deg)`;
-//   hourHand.style.transform = `rotateZ(${hours}deg)`;
-//     },1000);
+
 let toggleButton = document.querySelector(".toggle-button");
 function Toggle(){
    

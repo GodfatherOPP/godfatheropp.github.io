@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Key Detection</title>
+    <script type="text/javascript"></script>
+  </head>
+  <body>
+    <script>
+      const secretCode = "India";
+      var clicked = [];
+      window.addEventListener("keyup", check);
+      function check(e) {
+        clicked.push(e.key);
+        clicked.splice(
+          -secretCode.length - 1,
+          clicked.length - secretCode.length
+        );
+        console.log(clicked);
+        if (clicked.join("") == secretCode) {
+          alert("Code matched");
+        }
+      }
+    </script>
+  </body>
+</html>

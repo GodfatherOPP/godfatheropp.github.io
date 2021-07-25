@@ -24,10 +24,10 @@ function update() {
     var itemsJsonArray = [];
     localStorage.setItem("itemsJson", JSON.stringify(itemsJsonArray));
     console.log(localStorage.getItem("itemsJson"));
-  }else {
+  } else {
     itemsJsonArrayStr = localStorage.getItem("itemsJson");
     itemsJsonArray = JSON.parse(itemsJsonArrayStr);
-  } 
+  }
   List.innerHTML = "tasks";
   //display content which are added to list
   var Str = "";
@@ -77,7 +77,7 @@ function Delete() {
 
 // //  body.classList.remove("lightThemeBody")
 // //  body.classList.add("darkThemeBody")
- 
+
 // //  header.classList.remove("lightThemeHeader")
 // //  header.classList.add("darkThemeHeader")
 // var cssLink =document.getElementById("cssLink")
@@ -91,14 +91,14 @@ function Delete() {
 //   document.getElementById("changeThemeTO").innerHTML = "Dark"
 // }
 function changeStyle(url) {
-  document.getElementById('cssLink').href = url;
-  console.log("changed")
-  };
+  document.getElementById("cssLink").href = url;
+  console.log("changed");
+}
 
- function remove(index){
-    itemsJsonArrayStr = localStorage.getItem("itemsJson");
-    itemsJsonArray = JSON.parse(itemsJsonArrayStr);
-    var splicedArr = itemsJsonArray.splice(index,1);
-    localStorage.setItem("itemsJson", JSON.stringify(itemsJsonArray));
-    update();
-  }
+function remove(index) {
+  itemsJsonArrayStr = localStorage.getItem("itemsJson");
+  itemsJsonArray = JSON.parse(itemsJsonArrayStr);
+  var splicedArr = itemsJsonArray.splice(index, 1);
+  localStorage.setItem("itemsJson", JSON.stringify(itemsJsonArray));
+  update();
+}

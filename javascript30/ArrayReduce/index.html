@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <ul id="list">
+      <li data-time="1.50">1.5</li>
+      <li data-time="1.50">1.5</li>
+      <li data-time="1.50">1.5</li>
+      <li data-time="1.50">1.5</li>
+      <li data-time="1.50">1.5</li>
+      <li data-time="1.50">1.5</li>
+      <li data-time="1.50">1.5</li>
+      <li data-time="1.50">1.5</li>
+      <li data-time="1.50">1.5</li>
+      <li data-time="1.50">1.5</li>
+    </ul>
+  </body>
+  <script>
+    var timeSets = Array.from(document.querySelectorAll("[data-time]"));
+    /*console.log(timeSets)
+    var tempTimeSet = [
+      "10.49",
+      "11.50",
+      "12.51",
+      "13.52",
+      "14.53",
+      "15.54",
+      "16.55",
+      "17.56",
+      "18.57",
+      "19.58",
+    ];
+    */
+    var seconds = [];
+    seconds = timeSets.map(node=> node.dataset.time)
+      .map((time) => {
+        let [min, sec] = time.split(".");
+        var tempSeconds = parseInt(min) * 60 + parseInt(sec);
+        return tempSeconds;
+      })
+      .reduce((total, current) => total + current);
+
+    var secondsLeft = seconds;
+    var hours = secondsLeft / 3600;
+      secondsLeft = secondsLeft % 3600;
+    var minutes = secondsLeft / 60;
+    secondsLeft =  secondsLeft % 60;
+
+    console.log("Time = " +parseInt( hours) + " : "+ parseInt(minutes) + " : "+ parseInt(secondsLeft));
+  </script>
+</html>

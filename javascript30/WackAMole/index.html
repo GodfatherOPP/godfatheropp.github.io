@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Whack A Mole!</title>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Whack-a-mole! <span class="score">0</span></h1>
+  <h4 class="timeLeft">10</h4>
+  <button onClick="start()">Start!</button>
+
+  <div class="game">
+    <div class="hole hole1">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole2">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole3">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole4">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole5">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole6">
+      <div class="mole"></div>
+    </div>
+  </div>
+
+<script>
+  const holes = document.querySelectorAll('.hole');
+  const scoreBoard = document.querySelector('.score');
+  const moles = document.querySelectorAll('.mole');
+  let lastHole;
+  let out = false;
+  let score=0;
+  let timeLeft =document.querySelector('.timeLeft') ;
+  let time =10;
+function randomHole(allHole){ 
+allHole.forEach(onehole=> onehole.classList.remove("up"));
+  let hole = holes[Math.round(Math.floor(Math.random()*holes.length))]
+  if(hole === lastHole){
+     return randomHole(allHole);
+  }
+lastHole = hole;
+  return hole;
+}
+
+function timeRemaining(){
+  time--;
+  timeLeft.textContent = time;
+  if(time<=0){
+    timeLeft.textContent="Time's up ";
+    out=true; 
+    clearInterval("timeInterval");
+  }
+}
+
+function moveMole(){
+  let hole = randomHole(holes);
+  hole.classList.add("up");
+  setTimeout(() => {
+    hole.classList.remove("up");
+   if(!out) moveMole();
+}, 700);
+}
+
+function hitMole(e){
+this.classList.remove("up");
+score++;
+scoreBoard.textContent = score;
+}
+
+moles.forEach(mole=>mole.addEventListener("mouseup",hitMole));
+function start(){
+  clearTimeout();
+  scoreBoard.textContent = 0;
+  time =10;
+  moveMole()
+  score=0;
+  setTimeout(() => {
+    out=true;
+  }, 60000);
+ timeInterval= setInterval(() => {
+  timeRemaining();
+}, 1000);
+}
+
+</script>
+</body>
+</html>
